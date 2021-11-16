@@ -62,6 +62,7 @@ include("../connect.php");
                 exit;
             } else {
                 echo "<h1> Login failed. Invalid username  or password.</h1>";
+                //
             }
         }
         ?>
