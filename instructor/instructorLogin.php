@@ -61,7 +61,7 @@ include("../connect.php");
                 header('Location: ' . $uri . '/gym/instructor/instructorHome.php');
                 exit;
             } else {
-                echo "<h1> Login failed. Invalid username or password.</h1>";
+                echo "<h1> Login failed. Invalid username  or password.</h1>";
             }
         }
         ?>
