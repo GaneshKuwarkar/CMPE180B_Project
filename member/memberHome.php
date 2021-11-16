@@ -38,7 +38,7 @@
             <div><button type="submit" name="logout">Log Out</button></div>
         </form>
         <?php
-        
+
         if (isset($_POST['payment'])) {
             if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
                 $uri = 'https://';
@@ -81,8 +81,8 @@
             exit;
         }
         ?>
-        
-        
+
+
     </section>
 </body>
 

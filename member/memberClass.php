@@ -40,7 +40,7 @@
 
 <body>
     <section align="center">
-        
+
         <h1>Classes</h1>
 
         <div class="viewall" >
@@ -72,7 +72,7 @@
 
         <div class="viewmy" hidden>
             <?php
-            
+
                 $sql = "select C.C_id, C.C_name, C.C_scale, C.C_enrolled, C.C_duration, C.C_start_time, C.C_day, C.C_room, I.I_name 
                         from class C  
                         inner join instructor I on C.I_id = I.I_id 
@@ -104,7 +104,7 @@
                 <div><button type="submit" name="register" >Register</button> </div>
             </form>
         </div>
-        
+
         <div class="drop" hidden>
             <form style="text-align:center" method="post" action="memberClass.php">
                 <br><br>
@@ -186,4 +186,4 @@
     </section>
 </body>
 
-</html>
+</html> 

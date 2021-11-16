@@ -36,7 +36,7 @@
 
 <body>
     <section align="center">
-        
+
         <h1>Workout Plan</h1>
 
         <div class="view" >
@@ -51,7 +51,7 @@
                 echo "<br><br><h2>";
                 echo "Your Workout Status :  ";
                 echo $data["WP_status"];
-                
+
                 echo "<br><br>Your Workout Plan :  ";
                 echo $data["WP_difficulty"];
                 echo "</h2>";
@@ -139,4 +139,4 @@
     </section>
 </body>
 
-</html>
+</html> 

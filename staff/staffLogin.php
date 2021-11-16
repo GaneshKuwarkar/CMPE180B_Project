@@ -34,7 +34,9 @@ include("../connect.php");
             <div class="bottom-one"> <label> Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
-            <div><button type="submit" name="staffLogin" style="height:23px; width: 55px">Login</button> </div>
+            <div><button type="submit" name="staffLogin" style="height:23px; width: 55px">Login</button> 
+            <button type="submit" name="back">Back</button>
+            </div>
 
 
         </div>
@@ -43,7 +45,7 @@ include("../connect.php");
         <?php
         if (isset($_POST['staffLogin'])) {
             extract($_POST);
-            $sql = "select S_id from staff where S_email = '$username' and CAST(aes_decrypt(S_password,'key')as char(50)) = '$password'";
+            $sql = "select S_id from staff where S_email = '$username' and S_password = '$password'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -64,6 +66,16 @@ include("../connect.php");
                 echo "<h1> Login failed. Invalid username or password.</h1>";
             }
         }
+
+        if (isset($_POST['back'])) {
+            if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+                $uri = 'https://';
+            } else {
+                $uri = 'http://';
+            }
+            $uri .= $_SERVER['HTTP_HOST'];
+            header('Location: ' . $uri . '/gym/home.html');
+        }
         ?>
 
 
@@ -72,4 +84,4 @@ include("../connect.php");
         <section></section>
 </body>
 
-</html>
+</html> 

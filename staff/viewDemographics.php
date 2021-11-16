@@ -54,19 +54,15 @@ $M_Id = $_SESSION['ID'];
         <!-- 
         select count(M_id) as total_members
         from member;
-
         select count(M_id) as total_active_members
         from member natural join membership
         where M_end_date > curdate();
-
         select count(M_gender) as female_members
         from member
         where M_gender = 'F' and M_end_date > curdate();
-
         select count(M_gender) as male_members
         from member
         where M_gender = 'M' and M_end_date > curdate();
-
         select count(M_id) as age_group_members
         from member
         where M_end_date > curdate() and (datediff(curdate(), M_DOB) / 365.2425) between 20 and 50; -->
@@ -141,15 +137,12 @@ $M_Id = $_SESSION['ID'];
 
         <!-- select count(I_id) as total_instructors
         from instructor;
-
         select count(I_gender) as female_instructors 
         from instructor
         where I_gender = 'F';
-
         select count(I_gender) as male_instructors 
         from instructor
         where I_gender = 'M';
-
         select count(I_id) as age_group_instructors 
         from instructor
         where (datediff(current_date, I_DOB) / 365.2425) between 20 and 50; -->
@@ -216,11 +209,9 @@ $M_Id = $_SESSION['ID'];
 
         <!-- select count(C_id) as total_classes
         from class;
-
         select count(C_id) as num_classes_by_time
         from class
         where C_start_time between '' and '' ;
-
         select count(C_id) as num_classes_by_day
         from class
         where C_day = ''; -->
@@ -264,7 +255,6 @@ $M_Id = $_SESSION['ID'];
                         echo "<td>ID<td>Name<td>Scale<td>Enrolled<td>Duration<td>Start time<td>Day<td>Class Room<td>Instructor ID<td>";
                         echo "</tr>";
                         $result6 = mysqli_query($conn, $sql6);
-
                         while ($row6 = mysqli_fetch_assoc($result6)) {
                             echo "<tr>";
                             foreach ($row6 as $field => $value) {
@@ -302,4 +292,4 @@ $M_Id = $_SESSION['ID'];
     </section>
 </body>
 
-</html>
+</html> 

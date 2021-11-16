@@ -36,15 +36,15 @@
 
 <body>
     <section align="center">
-        
+
             <h1>Member Payment</h1>
 
-        
+
         <input type="radio" name="data" id="pay">Make a Payment</button> 
         <input type="radio" name="data" id="view">View Payment Records</button> 
         <button type="submit" onclick="window.location='memberHome.php';" name="back">Back</button>
-       
-        
+
+
         <div class="pay" hidden>
             <form style="text-align:center" method="post" action="memberPayment.php">
                 <br><br>
@@ -60,7 +60,7 @@
                 <div><button type="submit" name="payment" style="height:23px; width: 55px">Pay</button> </div>
             </form>
         </div>
-        
+
 
         <div class="view" hidden>
             <?php
@@ -80,15 +80,15 @@
                 }
                 echo "</table>";
             ?>
-            
-            
-            
+
+
+
         </div>
 
         <?php
         if (isset($_POST['payment'])) {
             extract($_POST);
-            
+
             $sql = "insert into payment values('$p_id', '$method', '$amount', curtime(), curdate(), '$M_Id')";
             //echo print($row['M_id']);
             if (mysqli_query($conn, $sql)) {
@@ -107,4 +107,4 @@
     </section>
 </body>
 
-</html>
+</html> 
