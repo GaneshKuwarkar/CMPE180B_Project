@@ -37,7 +37,7 @@ include("../connect.php");
             <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button> </div>
 
 
-        </div>
+        </div>  
     </form>
     <section align="center">
         <?php
