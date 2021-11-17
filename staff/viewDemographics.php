@@ -112,7 +112,7 @@ $M_Id = $_SESSION['ID'];
 
             <?php
 
-            $sql = "select M_id,M_name,M_gender,M_DOB,M_age,M_email,M_address,M_phone_No,S_id,MP_id from member";
+            $sql = "select M_id,M_name,M_gender,M_DOB,M_email,M_address,M_phone_No,S_id,MP_id from member";
 
             $sql1 = "select count(M_id) from member";
 
@@ -154,7 +154,7 @@ $M_Id = $_SESSION['ID'];
 
             echo "<tr>";
 
-            echo "<td>ID<td>Member Name<td>Gender<td>DOB<td>Age<td>Email ID<td>Address<td>Phone<td>Membership offered by Staff ID<td>Membership ID<td>";
+            echo "<td>ID<td>Member Name<td>Gender<td>DOB<td>Email ID<td>Address<td>Phone<td>Membership offered by Staff ID<td>Membership ID<td>";
 
             echo "</tr>";
 
@@ -211,7 +211,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row3 as $field => $value) {
 
                     echo  "<h3>Active Female Members : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -225,7 +224,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row4 as $field => $value) {
 
                     echo  "<h3>Active Male Members : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -239,7 +237,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row5 as $field => $value) {
 
                     echo  "<h3>Active Members in Age Group <25 : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -253,11 +250,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row6 as $field => $value) {
 
                     echo  "<h3>Active Members in Age Group 25 to 35 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row7 = mysqli_fetch_assoc($result7)) {
@@ -267,11 +262,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row7 as $field => $value) {
 
                     echo  "<h3>Active Members in Age Group 35 to 50 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row8 = mysqli_fetch_assoc($result8)) {
@@ -281,11 +274,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row8 as $field => $value) {
 
                     echo  "<h3>Active Members in Age Group > 50 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             ?>
@@ -359,7 +350,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row1 as $field => $value) {
 
                     echo  "<h3>Total Instructors : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -373,7 +363,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row2 as $field => $value) {
 
                     echo  "<h3>Female Instructors : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -401,7 +390,30 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row4 as $field => $value) {
 
                     echo  "<h3>Instructors in Age Group 20 to 30 : $value<h3>";
+                }
 
+                echo "</tr>";
+            }
+
+            while ($row5 = mysqli_fetch_assoc($result5)) {
+
+
+
+                foreach ($row5 as $field => $value) {
+
+                    echo  "<h3>Instructors in Age Group 30 to 40 : $value<h3>";
+                }
+
+                echo "</tr>";
+            }
+
+            while ($row6 = mysqli_fetch_assoc($result6)) {
+
+
+
+                foreach ($row6 as $field => $value) {
+
+                    echo  "<h3>Instructors in Age Group >40 : $value<h3>";
                 }
 
                 echo "</tr>";
@@ -509,7 +521,6 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row1 as $field => $value) {
 
                     echo  "<h3>Total staffs : $value<h3>";
-
                 }
 
                 echo "</tr>";
@@ -523,11 +534,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row2 as $field => $value) {
 
                     echo  "<h3>Female staffs : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row3 = mysqli_fetch_assoc($result3)) {
@@ -537,11 +546,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row3 as $field => $value) {
 
                     echo  "<h3>Male staffs : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row4 = mysqli_fetch_assoc($result4)) {
@@ -551,11 +558,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row4 as $field => $value) {
 
                     echo  "<h3>Staffs in Age Group 20 to 30 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row5 = mysqli_fetch_assoc($result5)) {
@@ -565,11 +570,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row5 as $field => $value) {
 
                     echo  "<h3>Staffs in Age Group 30 to 40 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row6 = mysqli_fetch_assoc($result6)) {
@@ -579,11 +582,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row6 as $field => $value) {
 
                     echo  "<h3>Staffs in Age Group >40 : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             ?>
@@ -616,9 +617,9 @@ $M_Id = $_SESSION['ID'];
 
             $sql9 = "select count(C_id) as num_Fri_class from class where C_day = 'Friday'";
 
-            $sql10 = "count(C_id) as num_Thu_class from class where C_day = 'Saturday'";
+            $sql10 = "select count(C_id) as num_Sat_class from class where C_day = 'Saturday'";
 
-            $sql11 = "count(C_id) as num_Fri_class from class where C_day = 'Sunday'";
+            $sql11 = "select count(C_id) as num_Fri_class from class where C_day = 'Sunday'";
 
 
 
@@ -665,11 +666,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row as $field => $value) {
 
                     echo "<td>" . $value . "</td>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             echo "</table>";
@@ -681,11 +680,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row1 as $field => $value) {
 
                     echo  "<h3>Total Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -695,11 +692,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row2 as $field => $value) {
 
                     echo  "<h3>Morning Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row3 = mysqli_fetch_assoc($result3)) {
@@ -709,11 +704,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row3 as $field => $value) {
 
                     echo  "<h3>Afternoon Casses : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row4 = mysqli_fetch_assoc($result4)) {
@@ -723,11 +716,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row4 as $field => $value) {
 
                     echo  "<h3>Evening Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row5 = mysqli_fetch_assoc($result5)) {
@@ -737,11 +728,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row5 as $field => $value) {
 
                     echo  "<h3>Monday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row6 = mysqli_fetch_assoc($result6)) {
@@ -751,11 +740,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row6 as $field => $value) {
 
                     echo  "<h3>Tuesday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row7 = mysqli_fetch_assoc($result7)) {
@@ -765,11 +752,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row7 as $field => $value) {
 
                     echo  "<h3>Wednesday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row8 = mysqli_fetch_assoc($result8)) {
@@ -779,11 +764,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row8 as $field => $value) {
 
                     echo  "<h3>Thursday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row9 = mysqli_fetch_assoc($result9)) {
@@ -793,11 +776,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row9 as $field => $value) {
 
                     echo  "<h3>Friday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row10 = mysqli_fetch_assoc($result10)) {
@@ -807,11 +788,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row10 as $field => $value) {
 
                     echo  "<h3>Saturday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             while ($row11 = mysqli_fetch_assoc($result11)) {
@@ -821,11 +800,9 @@ $M_Id = $_SESSION['ID'];
                 foreach ($row11 as $field => $value) {
 
                     echo  "<h3>Sunday Classes : $value<h3>";
-
                 }
 
                 echo "</tr>";
-
             }
 
             ?>
@@ -841,4 +818,3 @@ $M_Id = $_SESSION['ID'];
 
 
 </html>
-

@@ -1,27 +1,29 @@
 <html lang="en" dir="ltr">
 <?php
-    session_start(); // echo $_SESSION['ID'];
-    include("../connect.php");
-    $S_Id = $_SESSION['ID'];
-    $sql = "SELECT * FROM staff WHERE S_id = '$S_Id' AND S_type = 'FD'";
-    $result1 = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result1, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result1);
-    if($count != 0) {
+session_start(); // echo $_SESSION['ID'];
+include("../connect.php");
+$S_Id = $_SESSION['ID'];
+$sql = "SELECT * FROM staff WHERE S_id = '$S_Id' AND S_type = 'FD'";
+$result1 = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result1, MYSQLI_ASSOC);
+$count = mysqli_num_rows($result1);
+if ($count != 0) {
 ?>
-<style type="text/css">
-#class{
-display:none;
+    <style type="text/css">
+        #class {
+            display: none;
+        }
+
+        #staff {
+            display: none;
+        }
+
+        #instruct {
+            display: none;
+        }
+    </style>
+<?php
 }
-#staff{
-display:none;
-}
-#instruct{
-display:none;
-}
-</style>
-<?php      
-    }
 ?>
 
 <head>
@@ -45,9 +47,9 @@ display:none;
     <section align="center">
         <div class="bottom-one">
             <?php
-            if($count == 1) {
+            if ($count == 1) {
                 echo "<h1>Staff Home</h1>";
-            }else {
+            } else {
                 echo "<h1>Manager Home</h1>";
             }
             ?>
@@ -62,7 +64,10 @@ display:none;
             <div class="bottom-one" id="member"><button type="submit" name="crudMember">Add/Remove/Modify Members</button> </div>
             <div class="bottom-one" id="staff"><button type="submit" name="crudStaff">Add/Remove/Modify Staff Members</button> </div>
             <div class="bottom-one" id="instruct"><button type="submit" name="modifyInstructors">Add/Remove/Modify Instructors</button> </div>
-            <div><button type="submit" name="logout">Log Out</button></div>
+            <div class="bottom-one"><button type="submit" name="logout">Log Out</button></div>
+            <div>
+                <button type="submit" name="staffChangePassword">Change Password</button>
+            </div>
         </form>
         <?php
 
@@ -147,9 +152,20 @@ display:none;
             $uri .= $_SERVER['HTTP_HOST'];
             header('Location: ' . $uri . '/gym/staff/staffLogin.php');
             exit;
-        } 
+        }
+        if (isset($_POST['staffChangePassword'])) {
+
+            if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+                $uri = 'https://';
+            } else {
+                $uri = 'http://';
+            }
+            $uri .= $_SERVER['HTTP_HOST'];
+            header('Location: ' . $uri . '/gym/staff/staffChangePassword.php');
+            exit;
+        }
         ?>
     </section>
 </body>
 
-</html> 
+</html>

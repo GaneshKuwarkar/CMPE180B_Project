@@ -40,6 +40,7 @@ include("../connect.php");
 
         </div>
     </form>
+
     <section align="center">
         <?php
         if (isset($_POST['memberLogin'])) {
@@ -86,4 +87,4 @@ include("../connect.php");
         <section></section>
 </body>
 
-</html> 
+</html>
