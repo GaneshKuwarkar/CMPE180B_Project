@@ -45,12 +45,13 @@ include("../connect.php");
         <?php
         if (isset($_POST['staffLogin'])) {
             extract($_POST);
-            $sql = "select S_id from staff where S_email = '$username' and S_password = '$password'";
+            $sql = "select S_id from staff where S_email = '$username' and CAST(aes_decrypt(S_password,'key')as char(50)) = '$password'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
             //echo print($row['M_id']);
             if ($count == 1) {
+                logger("INFO","STAFF $ID LOGGED IN");
                 echo "<h1><center> Login successful </center></h1>";
                 session_start();
                 $_SESSION['ID'] = $row['S_id'];
@@ -63,6 +64,7 @@ include("../connect.php");
                 header('Location: ' . $uri . '/gym/staff/staffHome.php');
                 exit;
             } else {
+                logger("ERROR","FAILED LOGIN BY STAFF $username");
                 echo "<h1> Login failed. Invalid username or password.</h1>";
             }
         }

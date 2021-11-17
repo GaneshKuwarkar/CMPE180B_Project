@@ -34,7 +34,8 @@ include("../connect.php");
             <div class="bottom-one"> <label> Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
-            <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button> </div>
+            <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button> 
+            <button type="submit" name="back" style="height:23px; width: 55px">Back</button> </div>
 
 
         </div>
@@ -43,7 +44,7 @@ include("../connect.php");
         <?php
         if (isset($_POST['memberLogin'])) {
             extract($_POST);
-            $sql = "select M_id from member where M_email = '$username' and M_password = '$password'";
+            $sql = "select M_id from member where M_email = '$username' and CAST(aes_decrypt(M_password,'key')as char(50)) = '$password'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -51,6 +52,8 @@ include("../connect.php");
             if ($count == 1) {
                 echo "<h1><center> Login successful </center></h1>";
                 session_start();
+                $ID = $row['M_id'];
+                logger("INFO","MEMBER $ID LOGGED IN");
                 $_SESSION['ID'] = $row['M_id'];
                 if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
                     $uri = 'https://';
@@ -61,10 +64,21 @@ include("../connect.php");
                 header('Location: ' . $uri . '/gym/member/memberHome.php');
                 exit;
             } else {
+                logger("ERROR","FAILED LOGIN BY MEMBER $username");
                 echo "<h1> Login failed. Invalid username or password.</h1>";
             }
         }
+        if (isset($_POST['back'])) {
+            if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+                $uri = 'https://';
+            } else {
+                $uri = 'http://';
+            }
+            $uri .= $_SERVER['HTTP_HOST'];
+            header('Location: ' . $uri . '/gym/home.html');
+        }
         ?>
+        
 
 
 

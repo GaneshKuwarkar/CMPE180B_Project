@@ -232,11 +232,13 @@
             //  echo "$sql";
             // echo "$sql1";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","STAFF $S_Id ADDED MEMBER $M_id");
                 echo "<script>
                 alert('Member Added Successfully');
                 window.location.href='crudMember.php';
                 </script>";
             } else {
+                logger("ERROR","STAFF $S_Id ADD MEMBER FAILED");
                 echo "<script>
                 alert('Failed');
                 window.location.href='crudMember.php';
@@ -250,12 +252,14 @@
             $sql = "update member set $field = '$value' where M_id = '$M_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","STAFF $S_Id MODIFIED MEMBER $M_id");
                 echo "<script>
                 alert('Member Detail Updated');
                 window.location.href='crudMember.php';
                 </script>";
             } 
             else {
+                logger("ERROR","STAFF $S_Id MODIFY MEMBER FAILED");
                 echo "<script>
                 alert('Error while Modifying');
                 window.location.href='crudMember.php';
@@ -269,12 +273,14 @@
             $sql = "delete from member where M_id = '$M_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","STAFF $S_Id DELETED MEMBER $M_id");
                 echo "<script>
                 alert('Member Deleted');
                 window.location.href='crudMember.php';
                 </script>";
             } 
             else {
+                logger("ERROR","STAFF $S_Id DELETE MEMBER FAILED");
                 echo "<script>
                 alert('Error while Deleting');
                 window.location.href='crudMember.php';

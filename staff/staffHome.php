@@ -137,6 +137,7 @@ display:none;
             exit;
         }
         if (isset($_POST['logout'])) {
+            logger("INFO","STAFF $S_Id LOGGED OUT");
             session_destroy();
             if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
                 $uri = 'https://';
@@ -146,7 +147,7 @@ display:none;
             $uri .= $_SERVER['HTTP_HOST'];
             header('Location: ' . $uri . '/gym/staff/staffLogin.php');
             exit;
-        }
+        } 
         ?>
     </section>
 </body>

@@ -41,6 +41,11 @@ $I_id = $_SESSION['ID'];
 
         <input type="radio" name="data" id="viewMembers">View Members</button>
         <input type="radio" name="data" id="viewClasses">View Classes</button>
+        <br><br>
+        <form style="text-align:center" method="post" action="instructorHome.php">
+            <button type="submit" name="logout">Log Out</button>
+        </form>
+        
         <!-- <button type="submit" onclick="window.location='memberHome.php';" name="back">Back</button> -->
 
 
@@ -101,6 +106,20 @@ $I_id = $_SESSION['ID'];
                 echo "</tr>";
             }
             echo "</table>";
+
+            if (isset($_POST['logout'])) {
+                session_destroy();
+                
+                logger("INFO","INSTRUCTOR $I_id LOGGED OUT");
+                if (!empty($_SERVER['HTTPS'])&& ('on' == $_SERVER['HTTPS'])) {
+                    $uri = 'https://';
+                } else {
+                    $uri = 'http://';
+                }
+                $uri .= $_SERVER['HTTP_HOST'];
+                header('Location: ' . $uri . '/gym/instructor/instructorLogin.php');
+                exit;
+            }
             ?>
 
 

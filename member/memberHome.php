@@ -70,6 +70,7 @@
             exit;
         }
         if (isset($_POST['logout'])) {
+            logger("INFO","MEMBER $M_Id LOGGED OUT");
             session_destroy();
             if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
                 $uri = 'https://';

@@ -140,12 +140,14 @@
             $sql = "insert into taught_by(M_id, I_id) values('$M_id','$I_id')";
 
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","STAFF $S_Id ASSIGNED INSTRUCTOR $I_id TO MEMBER $M_id");
                 echo "<script>
                 alert('Instructor Assigned');
                 window.location.href='assignInstructor.php';
                 </script>";
             } 
             else {
+                logger("ERROR","STAFF $S_Id ASSIGNED INSTRUCTOR FAILED");
                 echo "<script>
                 alert('Error Assigning.. Already assigned');
                 window.location.href='assignInstructor.php';
@@ -160,6 +162,7 @@
             $sql = "update class set I_id = '$I_id' where C_id = '$C_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","STAFF $S_Id ASSIGNED INSTRUCTOR $I_id TO CLASS $C_id");
                 echo "<script>
                 alert('Instructor Assigned');
                 window.location.href='assignInstructor.php';

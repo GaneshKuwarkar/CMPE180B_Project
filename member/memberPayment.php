@@ -52,7 +52,7 @@
                     <input type="text" placeholder="Enter Payment Method" name="method" required>
                 </div>
                 <div> <label>Transaction Id : </label>
-                    <input type="text" placeholder="Enter Transaction Id" name="p_id" required>
+                    <input type="number" placeholder="Enter Transaction Id" name="p_id" required>
                 </div>
                 <div > <label> Amount : </label>
                     <input type="number" placeholder="Enter Amount" name="amount" required>
@@ -92,11 +92,13 @@
             $sql = "insert into payment values('$p_id', '$method', '$amount', curtime(), curdate(), '$M_Id')";
             //echo print($row['M_id']);
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","PAYMENT ID-$p_id BY MEMBER $M_Id");
                 echo "<script>
                 alert('Payment successful');
                 window.location.href='memberPayment.php';
                 </script>";
             } else {
+                logger("ERROR","PAYMENT FAILED BY MEMBER $M_Id");
                 echo "<script>
                 alert('Payment failed');
                 window.location.href='memberPayment.php';

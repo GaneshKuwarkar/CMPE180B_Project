@@ -141,6 +141,7 @@
 
             $sql = "insert into enroll values('$M_Id', '$C_id')";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MEMBER $M_Id ENROLLED INTO CLASS $C_id");
                 echo "<script>
                 alert('Registration Successful');
                 window.location.href='memberClass.php';
@@ -156,7 +157,7 @@
         if (isset($_POST['drop'])) {
             extract($_POST);
             $sql = "select * from enroll where C_id='$C_id_drop' and M_id='$M_Id'";
-            echo "$C_id_drop";
+           
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -170,6 +171,7 @@
 
             $sql = "delete from enroll where C_id='$C_id_drop' and M_id='$M_Id'";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MEMBER $M_Id DROPPED CLASS $C_id_drop");
                 echo "<script>
                 alert('Class Dropped');
                 window.location.href='memberClass.php';

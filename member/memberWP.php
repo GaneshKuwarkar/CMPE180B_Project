@@ -106,6 +106,7 @@
             extract($_POST);
             $sql = "update member set WP_status = '$newstatus' where M_id = '$M_Id'";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MEMBER $M_Id CHANGED WORKOUT STATUS");
                 echo "<script>
                 alert('Status Changed Successful');
                 window.location.href='memberWP.php';
@@ -124,6 +125,7 @@
                     set M.WP_id = (select WP.WP_id from workout_plan WP where WP.WP_difficulty = '$newplan') 
                     where M.M_id = '$M_Id'";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MEMBER $M_Id CHANGED WORKOUT PLAN");
                 echo "<script>
                 alert('Plan Changed Successful');
                 window.location.href='memberWP.php';

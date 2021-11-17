@@ -220,11 +220,13 @@
             //  echo "$sql";
             // echo "$sql1";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id ADDED STAFF $S_id");
                 echo "<script>
                 alert('Staff Added Successfully');
                 window.location.href='crudStaff.php';
                 </script>";
             } else {
+                logger("INFO","MANAGER $S_Id ADD STAFF FAILED");
                 echo "<script>
                 alert('Failed');
                 window.location.href='crudStaff.php';
@@ -238,12 +240,14 @@
             $sql = "update staff set $field = '$value' where S_id = '$S_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id MODIFIED STAFF $S_id");
                 echo "<script>
                 alert('Staff Detail Updated');
                 window.location.href='crudStaff.php';
                 </script>";
             } 
             else {
+                logger("INFO","MANAGER $S_Id MODIFY STAFF FAILED");
                 echo "<script>
                 alert('Error while Modifying');
                 window.location.href='crudStaff.php';
@@ -257,12 +261,14 @@
             $sql = "delete from staff where S_id = '$S_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id DELETED STAFF $S_id");
                 echo "<script>
                 alert('Staff Deleted');
                 window.location.href='crudStaff.php';
                 </script>";
             } 
             else {
+                logger("INFO","MANAGER $S_Id DELETE STAFF FAILED");
                 echo "<script>
                 alert('Error while Deleting');
                 window.location.href='crudStaff.php';

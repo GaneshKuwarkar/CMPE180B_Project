@@ -225,11 +225,13 @@
                     VALUES ('$C_id', '$C_name', '$C_scale', '0', '$C_duration', '$C_start_time', '$C_day', '$C_room', '$I_id');";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id ADDED CLASS $C_id");
                 echo "<script>
                 alert('Class Added Successfully');
                 window.location.href='crudClass.php';
                 </script>";
             } else {
+                logger("ERROR","MANAGER $S_Id CLASS ADD FAILED");
                 echo "<script>
                 alert('Failed');
                 window.location.href='crudClass.php';
@@ -243,12 +245,14 @@
             $sql = "update class set $field = '$value' where C_id = '$C_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id MODIFIED CLASS $C_id");
                 echo "<script>
                 alert('Class Detail Updated');
                 window.location.href='crudClass.php';
                 </script>";
             } 
             else {
+                logger("ERROR","MANAGER $S_Id CLASS MODIFY FAILED");
                 echo "<script>
                 alert('Error while Modifying');
                 window.location.href='crudClass.php';
@@ -262,12 +266,14 @@
             $sql = "delete from class where C_id = '$C_id'";
             // echo "$sql";
             if (mysqli_query($conn, $sql)) {
+                logger("INFO","MANAGER $S_Id DELETED CLASS $C_id");
                 echo "<script>
                 alert('Class Deleted');
                 window.location.href='crudClass.php';
                 </script>";
             } 
             else {
+                logger("ERROR","MANAGER $S_Id CLASS DELETE FAILED");
                 echo "<script>
                 alert('Error while Deleting');
                 window.location.href='crudClass.php';
