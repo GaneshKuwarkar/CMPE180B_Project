@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-    session_start();// echo $_SESSION['ID'];
-    include("../connect.php");
-    $M_Id = $_SESSION['ID'];
+session_start(); // echo $_SESSION['ID'];
+include("../connect.php");
+$M_Id = $_SESSION['ID'];
 ?>
 <html lang="en" dir="ltr">
 
@@ -28,14 +28,17 @@
         <div class="bottom-one">
             <h1>Member Home</h1>
             <h3> Your ID :
-            <?php echo $_SESSION['ID'];?>
+                <?php echo $_SESSION['ID']; ?>
             </h3>
         </div>
         <form style="text-align:center" method="post" action="memberHome.php">
             <div class="bottom-one"><button type="submit" name="payment">Payment</button> </div>
             <div class="bottom-one"><button type="submit" name="classes">Classes</button> </div>
             <div class="bottom-one"><button type="submit" name="workoutPlan">Workout Plan</button> </div>
-            <div><button type="submit" name="logout">Log Out</button></div>
+            <div class="bottom-one"><button type="submit" name="logout">Log Out</button></div>
+            <div>
+                <button type="submit" name="memberChangePassword">Change Password</button>
+            </div>
         </form>
         <?php
 
@@ -78,6 +81,17 @@
             }
             $uri .= $_SERVER['HTTP_HOST'];
             header('Location: ' . $uri . '/gym/member/memberLogin.php');
+            exit;
+        }
+        if (isset($_POST['memberChangePassword'])) {
+
+            if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+                $uri = 'https://';
+            } else {
+                $uri = 'http://';
+            }
+            $uri .= $_SERVER['HTTP_HOST'];
+            header('Location: ' . $uri . '/gym/member/memberChangePassword.php');
             exit;
         }
         ?>

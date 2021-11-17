@@ -34,16 +34,20 @@ include("../connect.php");
             <div class="bottom-one"> <label> Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
-            <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button> </div>
+            <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button>
+
+            </div>
 
 
         </div>
     </form>
+
     <section align="center">
         <?php
         if (isset($_POST['memberLogin'])) {
             extract($_POST);
-            $sql = "select M_id from member where M_email = '$username' and M_password = '$password'";
+
+            $sql = "select M_id from member where M_email = '$username' and CAST(aes_decrypt(M_password,'key')as char(50)) = '$password'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -72,4 +76,4 @@ include("../connect.php");
         <section></section>
 </body>
 
-</html> 
+</html>

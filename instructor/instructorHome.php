@@ -38,9 +38,14 @@ $I_id = $_SESSION['ID'];
 
         <h1>Instructor Home</h1>
 
+        <div class="bottom-one">
+            <input type="radio" name="data" id="viewMembers">View Members</button>
+            <input type="radio" name="data" id="viewClasses">View Classes</button>
+        </div>
+        <form style="text-align:center" method="post" action="instructorHome.php">
+            <button type="submit" name="instructorChangePassword">Change Password</button>
+        </form>
 
-        <input type="radio" name="data" id="viewMembers">View Members</button>
-        <input type="radio" name="data" id="viewClasses">View Classes</button>
         <!-- <button type="submit" onclick="window.location='memberHome.php';" name="back">Back</button> -->
 
 
@@ -101,6 +106,19 @@ $I_id = $_SESSION['ID'];
                 echo "</tr>";
             }
             echo "</table>";
+
+
+            if (isset($_POST['instructorChangePassword'])) {
+
+                if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+                    $uri = 'https://';
+                } else {
+                    $uri = 'http://';
+                }
+                $uri .= $_SERVER['HTTP_HOST'];
+                header('Location: ' . $uri . '/gym/instructor/instructorChangePassword.php');
+                exit;
+            }
             ?>
 
 

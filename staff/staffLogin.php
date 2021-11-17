@@ -45,7 +45,7 @@ include("../connect.php");
         <?php
         if (isset($_POST['staffLogin'])) {
             extract($_POST);
-            $sql = "select S_id from staff where S_email = '$username' and S_password = '$password'";
+            $sql = "select S_id from staff where S_email = '$username' and CAST(aes_decrypt(S_password,'key')as char(50)) = '$password'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
