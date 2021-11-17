@@ -147,7 +147,7 @@
                 </script>";
             } 
             else {
-                logger("ERROR","STAFF $S_Id ASSIGNED INSTRUCTOR FAILED");
+                logger("ERROR","STAFF $S_Id ASSIGN INSTRUCTOR FAILED");
                 echo "<script>
                 alert('Error Assigning.. Already assigned');
                 window.location.href='assignInstructor.php';

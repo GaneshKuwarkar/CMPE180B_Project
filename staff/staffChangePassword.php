@@ -63,11 +63,12 @@ $S_Id = $_SESSION['ID'];
                 } else {
                     logger("ERROR","STAFF $S_Id PASSWORD UPDATE FAILED");
                     echo "<script>
-                alert('Error while Updating Password');
-                window.location.href='staffChangePassword.php';
-                </script>";
+                    alert('Error while Updating Password');
+                    window.location.href='staffChangePassword.php';
+                    </script>";
                 }
             } else {
+                logger("ERROR","STAFF $S_Id PASSWORD UPDATE FAILED");
                 echo "Error : The above passwords do not match";
             }
         }

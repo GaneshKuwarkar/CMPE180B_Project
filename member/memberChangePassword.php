@@ -68,6 +68,7 @@ $M_Id = $_SESSION['ID'];
                 </script>";
                 }
             } else {
+                logger("ERROR","MEMBER $M_Id PASSWORD UPDATE FAILED");
                 echo "Error : The above passwords do not match";
             }
         }

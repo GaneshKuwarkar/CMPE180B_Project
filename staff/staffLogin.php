@@ -52,6 +52,7 @@ include("../connect.php");
             $count = mysqli_num_rows($result);
             //echo print($row['M_id']);
             if ($count == 1) {
+                $ID = $row['S_id'];
                 logger("INFO","STAFF $ID LOGGED IN");
                 echo "<h1><center> Login successful </center></h1>";
                 session_start();

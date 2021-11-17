@@ -163,9 +163,24 @@
 
         if (isset($_POST['modify'])) {
             extract($_POST);
+            $sql = "select * from instructor where I_id='$I_id'";
+            // echo "$I_id_drop";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $count = mysqli_num_rows($result);
+
+            if ($count == 0) {
+                logger("ERROR","MANAGER $S_Id MODIFY INSTRUCTOR FAILED");
+                echo "<script>
+                alert('Incorrect Instructor Id');
+                window.location.href='modifyInstructors.php';
+                </script>";
+                
+            }
+
             $sql = "update instructor set $category = '$entry' where I_id = '$I_id'";
             // echo $sql;
-            if (mysqli_query($conn, $sql)) {
+            if ($count != 0 && mysqli_query($conn, $sql)) {
                 logger("INFO","MANAGER $S_Id MODIFIED INSTRUCTOR $I_id");
                 echo "<script>
                 alert('Instructor details Changed Successful');

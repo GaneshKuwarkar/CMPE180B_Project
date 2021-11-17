@@ -163,10 +163,12 @@
             $count = mysqli_num_rows($result);
 
             if ($count == 0) {
+                logger("ERROR","MEMBER $M_Id DROP CLASS FAILED");
                 echo "<script>
                 alert('Incorrect Class Id. Not Enrolled');
                 window.location.href='memberClass.php';
                 </script>";
+                exit;
             }
 
             $sql = "delete from enroll where C_id='$C_id_drop' and M_id='$M_Id'";
