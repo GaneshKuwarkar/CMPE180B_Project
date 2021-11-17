@@ -64,10 +64,9 @@ if ($count != 0) {
             <div class="bottom-one" id="member"><button type="submit" name="crudMember">Add/Remove/Modify Members</button> </div>
             <div class="bottom-one" id="staff"><button type="submit" name="crudStaff">Add/Remove/Modify Staff Members</button> </div>
             <div class="bottom-one" id="instruct"><button type="submit" name="modifyInstructors">Add/Remove/Modify Instructors</button> </div>
+            <div class="bottom-one"><button type="submit" name="staffChangePassword">Change Password</button></div>
             <div class="bottom-one"><button type="submit" name="logout">Log Out</button></div>
-            <div>
-                <button type="submit" name="staffChangePassword">Change Password</button>
-            </div>
+            
         </form>
         <?php
 

@@ -35,10 +35,9 @@ $M_Id = $_SESSION['ID'];
             <div class="bottom-one"><button type="submit" name="payment">Payment</button> </div>
             <div class="bottom-one"><button type="submit" name="classes">Classes</button> </div>
             <div class="bottom-one"><button type="submit" name="workoutPlan">Workout Plan</button> </div>
+            <div class="bottom-one"><button type="submit" name="memberChangePassword">Change Password</button></div>
             <div class="bottom-one"><button type="submit" name="logout">Log Out</button></div>
-            <div>
-                <button type="submit" name="memberChangePassword">Change Password</button>
-            </div>
+            
         </form>
         <?php
 

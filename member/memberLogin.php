@@ -35,11 +35,14 @@ include("../connect.php");
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
             <div><button type="submit" name="memberLogin" style="height:23px; width: 55px">Login</button> 
-            <button type="submit" name="back" style="height:23px; width: 55px">Back</button> </div>
+            <button type="submit" onclick="window.location='http://localhost/gym/home.html';" name="back">Back</button>
+             </div>
 
 
         </div>
+        <br><br>
     </form>
+    
 
     <section align="center">
         <?php

@@ -10,7 +10,7 @@ $conn=mysqli_connect($servername,$username,$password,$dbname);
 if ($conn->connect_error) {
   die("Connection to DB failed: " . $conn->connect_error);
 }
-echo "Connected to DB successfully";
+// echo "Connected to DB successfully";
 date_default_timezone_set('America/Los_Angeles');
 function logger($level, $message){
   $requestlogFile = "../request.log";

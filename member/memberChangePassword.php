@@ -50,9 +50,16 @@ $M_Id = $_SESSION['ID'];
                 if (mysqli_query($conn, $sql)) {
                     logger("INFO","MEMBER $M_Id UPDATED PASSWORD");
                     echo "<script>
-                alert('Member Password Updated Successfully');
-                window.location.href='memberChangePassword.php';
-                </script>";
+                    alert('Member Password Updated Successfully');
+                    window.location.href='memberChangePassword.php';
+                    </script>";
+                    if (!empty($_SERVER['HTTPS'])&& ('on' == $_SERVER['HTTPS'])) {
+                        $uri = 'https://';
+                    } else {
+                        $uri = 'http://';
+                    }
+                    $uri .= $_SERVER['HTTP_HOST'];
+                    header('Location: ' . $uri . '/gym/member/memberHome.php');
                 } else {
                     logger("ERROR","MEMBER $M_Id PASSWORD UPDATE FAILED");
                     echo "<script>

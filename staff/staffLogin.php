@@ -35,7 +35,8 @@ include("../connect.php");
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
             <div><button type="submit" name="staffLogin" style="height:23px; width: 55px">Login</button> 
-            <button type="submit" name="back">Back</button>
+            <!-- <button type="submit" name="back">Back</button> -->
+            <button type="submit" onclick="window.location='http://localhost/gym/home.html';" name="back">Back</button>
             </div>
 
 

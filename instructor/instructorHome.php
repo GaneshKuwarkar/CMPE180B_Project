@@ -38,16 +38,15 @@ $I_id = $_SESSION['ID'];
 
         <h1>Instructor Home</h1>
 
-        <div class="bottom-one">
-            <input type="radio" name="data" id="viewMembers">Members To Train for Workout</button>
-            <input type="radio" name="data" id="viewClasses">View My Classes</button>
-        </div>
-        <form style="text-align:center" method="post" action="instructorHome.php">
-        <button type="submit" name="logout">Log Out</button>
-            <button type="submit" name="instructorChangePassword">Change Password</button>
-        </form>
 
-        
+        <input type="radio" name="data" id="viewMembers">Members To Train for Workout</button>
+        <input type="radio" name="data" id="viewClasses">View My Classes</button>
+        <br><br>
+        <form style="text-align:center" method="post" action="instructorHome.php">
+            <button type="submit" name="instructorChangePassword">Change Password</button>
+            <button type="submit" name="logout">Log Out</button>
+            
+        </form>
         
         <!-- <button type="submit" onclick="window.location='memberHome.php';" name="back">Back</button> -->
 
@@ -109,7 +108,13 @@ $I_id = $_SESSION['ID'];
                 echo "</tr>";
             }
             echo "</table>";
+            ?>
 
+
+
+        </div>
+        <div>
+            <?php
             if (isset($_POST['logout'])) {
                 session_destroy();
                 
@@ -136,9 +141,6 @@ $I_id = $_SESSION['ID'];
                 exit;
             }
             ?>
-
-
-
         </div>
 
 
