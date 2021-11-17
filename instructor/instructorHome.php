@@ -39,8 +39,8 @@ $I_id = $_SESSION['ID'];
         <h1>Instructor Home</h1>
 
         <div class="bottom-one">
-            <input type="radio" name="data" id="viewMembers">View Members</button>
-            <input type="radio" name="data" id="viewClasses">View Classes</button>
+            <input type="radio" name="data" id="viewMembers">Members To Train for Workout</button>
+            <input type="radio" name="data" id="viewClasses">View My Classes</button>
         </div>
         <form style="text-align:center" method="post" action="instructorHome.php">
         <button type="submit" name="logout">Log Out</button>

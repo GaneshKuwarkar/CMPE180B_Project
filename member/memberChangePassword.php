@@ -45,14 +45,16 @@ $M_Id = $_SESSION['ID'];
 
 
                 $sql = "update member set M_password = aes_encrypt('$value2','key') where M_id = '$M_Id'";
-                echo $sql;
+                // echo $sql;
 
                 if (mysqli_query($conn, $sql)) {
+                    logger("INFO","MEMBER $M_Id UPDATED PASSWORD");
                     echo "<script>
                 alert('Member Password Updated Successfully');
                 window.location.href='memberChangePassword.php';
                 </script>";
                 } else {
+                    logger("ERROR","MEMBER $M_Id PASSWORD UPDATE FAILED");
                     echo "<script>
                 alert('Error while Updating Password');
                 window.location.href='memberChangePassword.php';

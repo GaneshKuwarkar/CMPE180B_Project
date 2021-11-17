@@ -48,11 +48,13 @@ $S_Id = $_SESSION['ID'];
                 //echo $sql;
 
                 if (mysqli_query($conn, $sql)) {
+                    logger("INFO","STAFF $S_Id UPDATED PASSWORD");
                     echo "<script>
                 alert('Staff Password Updated Successfully');
                 window.location.href='staffChangePassword.php';
                 </script>";
                 } else {
+                    logger("ERROR","STAFF $S_Id PASSWORD UPDATE FAILED");
                     echo "<script>
                 alert('Error while Updating Password');
                 window.location.href='staffChangePassword.php';
